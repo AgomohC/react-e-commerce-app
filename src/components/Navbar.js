@@ -4,7 +4,7 @@ import { GiClothes } from "react-icons/gi";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-dark bg-light py-2 pl-5">
+    <nav className="navbar shadow navbar-dark bg-light py-2 pl-5">
       <div className="navbar-brand text-primary">
         <div>
           <GiClothes className="display-4 mr-1" />
