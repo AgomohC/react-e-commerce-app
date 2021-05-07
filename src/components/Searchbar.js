@@ -2,7 +2,7 @@ import React from "react";
 
 const Searchbar = () => {
   return (
-    <div className="container">
+    <section className="container">
       <div className="row justify-content-center d-flex">
         <form className="col-12">
           <div className="form-group pt-5">
@@ -16,12 +16,12 @@ const Searchbar = () => {
         </form>
         <button
           type="submit"
-          className="btn btn-primary mx-auto mt-2 col-1 text-capitalize"
+          className="btn btn-primary mx-auto mt-2 text-capitalize"
         >
           search
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 
