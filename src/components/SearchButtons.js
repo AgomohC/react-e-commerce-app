@@ -13,7 +13,7 @@ const SearchButtons = () => {
       })
     ),
   ];
-  console.log(storeCategories);
+  // console.log(storeCategories);
   return (
     <section id="btn-container" className="container mt-5">
       <div className="row justify-content-center">
