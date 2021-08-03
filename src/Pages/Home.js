@@ -1,13 +1,13 @@
 import React from "react";
 import SearchButtons from "../components/SearchButtons";
-import Itemlist from "../components/Itemlist";
+import ItemList from "../components/ItemList";
 import SearchBar from "../components/Searchbar";
 const Home = () => {
   return (
     <main className="bg-secondary text-capitalize height">
       <SearchBar></SearchBar>
       <SearchButtons></SearchButtons>
-      <Itemlist></Itemlist>
+      <ItemList></ItemList>
     </main>
   );
 };

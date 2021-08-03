@@ -20,7 +20,7 @@ const SearchButtons = () => {
         {storeCategories.map((item, idx) => {
           return (
             <button
-              className="btn mx-sm-2 text-capitalize btn-primary col-8 col-sm-4 col-md-4 col-lg-2 mb-3"
+              className="btn mx-2 text-capitalize btn-primary col-4 col-lg-2 mb-3 shadow-sm"
               key={idx}
             >
               {item}
