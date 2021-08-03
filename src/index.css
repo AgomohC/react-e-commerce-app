@@ -1,9 +1,13 @@
+body {
+  background-color: #6c757d !important;
+}
 .height {
   min-height: 100vh !important;
 }
 .width-400 {
   max-width: 400px !important;
 }
+
 .img-height {
-  max-height: 333px !important;
+  max-height: 300px !important;
 }

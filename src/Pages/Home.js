@@ -4,7 +4,7 @@ import ItemList from "../components/ItemList";
 import SearchBar from "../components/Searchbar";
 const Home = () => {
   return (
-    <main className="bg-secondary text-capitalize height">
+    <main className="bg-secondary pb-5 text-capitalize height">
       <SearchBar></SearchBar>
       <SearchButtons></SearchButtons>
       <ItemList></ItemList>

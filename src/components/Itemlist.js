@@ -12,15 +12,19 @@ const ItemList = () => {
     );
   }
   return (
-    <section className="container pt-4 mt-4 border border-secondary bg-light rounded">
-      <div className="row card-deck">
+    <section className="container py-4 mt-4 border border-secondary bg-light rounded">
+      <div className="row">
         {storeItems.map((item) => {
           const { id, title, price, img } = item;
 
           return (
-            <div className="col-md-6 col-lg-4 my-3 shadow-lg">
+            <div className="col-md-6 col-lg-4 my-3 mx-auto shadow-lg">
               <div className="card" id={id}>
-                <img alt={title} src={img} className="card-img-top" />
+                <img
+                  alt={title}
+                  src={img}
+                  className="card-img-top img-height"
+                />
 
                 <div className="card-body bg-secondary">
                   <h5 className="card-title text-white text-capitalize">
