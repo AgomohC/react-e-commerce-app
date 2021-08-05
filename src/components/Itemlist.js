@@ -21,7 +21,7 @@ const ItemList = () => {
             <div className="col-md-6 col-lg-4 my-3 mx-auto shadow-lg">
               <div className="card" id={id}>
                 <img
-                  alt={title}
+                  alt={`${title.substring(0, 30)}...`}
                   src={img}
                   className="card-img-top img-height"
                 />

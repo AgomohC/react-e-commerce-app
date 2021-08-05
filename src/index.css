@@ -11,3 +11,15 @@ body {
 .img-height {
   max-height: 300px !important;
 }
+.relative {
+  position: relative;
+}
+.fixed {
+  position: absolute;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  background-color: rgb(255, 154, 117);
+  top: -2px;
+  right: -2px;
+}
