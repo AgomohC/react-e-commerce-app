@@ -2,16 +2,16 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "SEARCH_CATEGORIES":
       console.log(action.payload);
-      // console.log(state);
+      console.log(state);
       if (action.payload === "all") {
         return { ...state };
       } else {
-        // console.log(state);
+        const newItems = action.initialState.items.filter((item) => {
+          return item.category === action.payload;
+        });
         return {
           ...state,
-          items: state.items.filter((item) => {
-            return item.category == action.payload;
-          }),
+          items: newItems,
         };
       }
 

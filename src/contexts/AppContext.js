@@ -21,8 +21,7 @@ const AppProvider = ({ children }) => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const searchCategory = (id) => {
-    console.log(state.storeCategories);
-    dispatch({ type: "SEARCH_CATEGORIES", payload: id });
+    dispatch({ type: "SEARCH_CATEGORIES", payload: id, initialState });
   };
   return (
     <AppContext.Provider value={{ ...state, searchCategory }}>
