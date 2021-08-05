@@ -8,7 +8,7 @@ const Searchbar = () => {
           <div className="form-group mx-auto col-12 col-md-8 col-lg-6 bg-light mt-5 p-3  shadow rounded d-flex justify-content-center">
             <label
               htmlFor="searchInput"
-              className="text-secondary text-capitalize  my-auto col-2 pr-2"
+              className="text-secondary text-capitalize  my-auto col-2 pr-2 mr-3 mr-md-auto"
             >
               search
             </label>
