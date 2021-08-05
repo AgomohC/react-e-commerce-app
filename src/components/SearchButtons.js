@@ -1,18 +1,9 @@
 import React from "react";
+
 import { useGlobalContext } from "../contexts/AppContext";
 
 const SearchButtons = () => {
-  const { items } = useGlobalContext();
-
-  const storeCategories = [
-    "all",
-    ...new Set(
-      items.map((i) => {
-        const { category } = i;
-        return category;
-      })
-    ),
-  ];
+  const { searchCategory, storeCategories } = useGlobalContext();
 
   return (
     <section id="btn-container" className="container mt-5">
@@ -22,6 +13,8 @@ const SearchButtons = () => {
             <button
               className="btn mx-2 text-capitalize btn-primary col-4 col-lg-2 mb-3 shadow-sm"
               key={idx}
+              id={item}
+              onClick={() => searchCategory(item)}
             >
               {item}
             </button>

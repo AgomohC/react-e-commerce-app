@@ -18,7 +18,10 @@ const ItemList = () => {
           const { id, title, price, image } = item;
 
           return (
-            <div className="col-8 col-sm-6 col-md-4 col-lg-4 my-3 mx-auto shadow-lg">
+            <div
+              key={id}
+              className="col-8 col-sm-6 col-md-4 col-lg-4 my-3 mx-auto shadow-lg"
+            >
               <div className="card" id={id}>
                 <img
                   alt={`${title.substring(0, 30)}...`}
