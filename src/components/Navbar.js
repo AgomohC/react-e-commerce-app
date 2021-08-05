@@ -37,7 +37,9 @@ const Navbar = () => {
         <div className="col-md-1 col-4 my-auto">
           <button className="btn relative">
             <FaShoppingCart className="text-primary h3" />
-            <div className="fixed shadow-lg text-muted">30</div>
+            <div className="fixed shadow-lg text-muted">
+              <p>30</p>
+            </div>
           </button>
         </div>
       </div>

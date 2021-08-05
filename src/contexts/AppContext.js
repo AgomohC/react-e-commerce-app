@@ -1,39 +1,18 @@
 import React from "react";
 import { data } from "../data";
-import Reducer from "../reducers/Reducer";
-import { useEffect, useContext, useState } from "react";
+import reducer from "../reducers/reducer";
+import { useEffect, useContext, useState, useReducer } from "react";
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [storeItems, setStoreItems] = useState([]);
-
-  const goods = () => {
-    const storeItem = data.map((item) => {
-      const { id, title, price, description, category, image } = item;
-      return {
-        id: id,
-        title: title,
-        price: price,
-        desc: description,
-        cat: category,
-        img: image,
-      };
-    });
-    // console.log(storeItem);
-    setStoreItems(storeItem);
+  const initialState = {
+    items: data,
   };
-
-  useEffect(() => {
-    goods();
-    return () => goods();
-  }, []);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <AppContext.Provider value={{ setSearchTerm, storeItems }}>
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
   );
 };
 

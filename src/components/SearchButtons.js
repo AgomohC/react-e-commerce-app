@@ -2,18 +2,18 @@ import React from "react";
 import { useGlobalContext } from "../contexts/AppContext";
 
 const SearchButtons = () => {
-  const { storeItems } = useGlobalContext();
+  const { items } = useGlobalContext();
 
   const storeCategories = [
     "all",
     ...new Set(
-      storeItems.map((i) => {
-        const { cat } = i;
-        return cat;
+      items.map((i) => {
+        const { category } = i;
+        return category;
       })
     ),
   ];
-  // console.log(storeCategories);
+
   return (
     <section id="btn-container" className="container mt-5">
       <div className="row justify-content-center">
