@@ -6,6 +6,7 @@ import { MdAccountCircle } from "react-icons/md";
 
 // TODO
 //DESIGN TOOLTIPS FOR LOGINS AND SIGN UPS
+//ADD USERNAME FOR THE ACCOUNT DETAILS
 
 const Navbar = () => {
   return (

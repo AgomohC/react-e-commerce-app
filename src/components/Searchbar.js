@@ -1,6 +1,9 @@
 import React from "react";
+import { useGlobalContext } from "../contexts/AppContext";
 
 const Searchbar = () => {
+  const { searchValue, searchbarFunction } = useGlobalContext();
+
   return (
     <section className="container">
       <div className="row justify-content-center d-flex">
@@ -15,6 +18,8 @@ const Searchbar = () => {
             <input
               type="text"
               id="searchInput"
+              value={searchValue}
+              onChange={(e) => searchbarFunction(e)}
               className="form-control text-light bg-secondary mx-auto width-400 my-auto pl-2 col-10"
             />
           </div>
