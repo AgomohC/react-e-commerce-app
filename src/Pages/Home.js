@@ -2,12 +2,19 @@ import React from "react";
 import SearchButtons from "../components/SearchButtons";
 import ItemList from "../components/ItemList";
 import SearchBar from "../components/Searchbar";
+import { useGlobalContext } from "../contexts/AppContext";
+import Loading from "../components/Loading";
 const Home = () => {
+  const { loadFunction, loaded } = useGlobalContext();
+
   return (
-    <main className="bg-secondary pb-5 text-capitalize height">
+    <main
+      onLoad={loadFunction}
+      className="bg-secondary pb-5 text-capitalize height"
+    >
       <SearchBar></SearchBar>
       <SearchButtons></SearchButtons>
-      <ItemList></ItemList>
+      {loaded ? <ItemList /> : <Loading />}
     </main>
   );
 };

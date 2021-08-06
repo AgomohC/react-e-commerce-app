@@ -19,6 +19,7 @@ const AppProvider = ({ children }) => {
     items: data,
     storeCategories: cat,
     searchValue: "",
+    loaded: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const searchCategory = (id) => {
@@ -27,9 +28,12 @@ const AppProvider = ({ children }) => {
   const searchbarFunction = (e) => {
     dispatch({ type: "SEARCH_BAR", payload: e.target.value, initialState });
   };
+  const loadFunction = () => {
+    dispatch({ type: "LOAD", initialState });
+  };
   return (
     <AppContext.Provider
-      value={{ ...state, searchCategory, searchbarFunction }}
+      value={{ ...state, searchCategory, searchbarFunction, loadFunction }}
     >
       {children}
     </AppContext.Provider>

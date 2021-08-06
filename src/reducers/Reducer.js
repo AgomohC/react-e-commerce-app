@@ -25,7 +25,8 @@ const reducer = (state, action) => {
       });
       console.log(newItems);
       return { ...state, items: newItems, searchValue: action.payload };
-
+    case "LOAD":
+      return { ...state, loaded: true };
     default:
       return state;
   }
