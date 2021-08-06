@@ -2,7 +2,7 @@ import React from "react";
 import { GiClothes } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // TODO
 //DESIGN TOOLTIPS FOR LOGINS AND SIGN UPS
@@ -12,10 +12,12 @@ const Navbar = () => {
   return (
     <nav className="navbar shadow navbar-dark bg-light py-2 pl-5">
       <div className="navbar-brand text-primary">
-        <div>
-          <GiClothes className="display-4 mr-1" />
-          Femto Store
-        </div>
+        <Link to="/">
+          <div>
+            <GiClothes className="display-4 mr-1" />
+            Femto Store
+          </div>
+        </Link>
       </div>
       <div className="row mr-md-5">
         <div className="col-md-10 col-4 d-flex my-auto">

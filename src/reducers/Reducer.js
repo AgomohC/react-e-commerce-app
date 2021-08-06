@@ -17,7 +17,6 @@ const reducer = (state, action) => {
         return { ...action.initialState };
       }
 
-      // const testRegex = /action.payload/gi;
       const testRegex = new RegExp(action.payload, "gi");
       const newItems = action.initialState.items.filter((item) => {
         const { title } = item;
