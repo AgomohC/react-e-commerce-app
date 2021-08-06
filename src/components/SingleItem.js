@@ -1,16 +1,19 @@
 import React from "react";
+import { useGlobalContext } from "../contexts/AppContext";
+import { Link } from "react-router-dom";
 
 const SingleItem = () => {
+  const { items, urlId } = useGlobalContext();
+  const SingleItem = items[urlId - 1];
+  const { id, title, price, description, category, image } = SingleItem;
   return (
-    <article>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis in
-      unde a quam quibusdam modi cupiditate, qui expedita veritatis inventore at
-      facilis magni quo doloribus delectus velit. Reiciendis repellat unde fuga
-      commodi iure voluptate iusto, modi ipsum consequuntur dolore earum
-      laboriosam eos quibusdam soluta nisi nulla suscipit consequatur ducimus
-      maiores saepe nemo et veniam incidunt. Iusto tempore quasi cumque.
-      Recusandae provident sit facere libero eos nisi officiis quod hic!
-    </article>
+    <section className="container bg-light height">
+      <div className="row">
+        <div className="col-12 col-sm-6">
+          <img src={image} alt={title} />
+        </div>
+      </div>
+    </section>
   );
 };
 

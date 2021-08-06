@@ -35,9 +35,9 @@ const ItemList = () => {
                     {title.substring(0, 30)}...
                   </h5>
                   <p className="text-light card-text">${price}</p>
-                  <Link to={`/${urlId}`}>
+                  <Link to={`/:${urlId}`}>
                     <div
-                      onClick={(e) => loadSingleItem(e)}
+                      onMouseOver={(e) => loadSingleItem(e)}
                       className="btn btn-primary text-light mr-4 text-uppercase"
                     >
                       details

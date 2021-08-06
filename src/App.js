@@ -16,7 +16,7 @@ const App = () => {
         <Route exact path="/">
           <Home></Home>
         </Route>
-        <Route exact path={`/${urlId}`}>
+        <Route path={`/:${urlId}`}>
           <SingleItem></SingleItem>
         </Route>
         <Route path="*">
