@@ -6,6 +6,9 @@ const SingleItem = () => {
   const { items, urlId } = useGlobalContext();
   const SingleItem = items[urlId - 1];
   const { id, title, price, description, category, image } = SingleItem;
+
+  //TODO
+  // STYLE SINGLEITEM
   return (
     <section className="container bg-light height">
       <div className="row">
