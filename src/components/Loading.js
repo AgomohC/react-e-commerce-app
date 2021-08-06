@@ -5,7 +5,7 @@ const Loading = () => {
   return (
     <div className="container rounded mx-auto bg-light">
       <div className="row">
-        <div className="col d-flex align-items-center loading justify-content-center height">
+        <div className="col d-flex align-items-center justify-content-center height">
           <img src={image} alt="loading" />
         </div>
       </div>
