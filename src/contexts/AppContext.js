@@ -20,6 +20,7 @@ const AppProvider = ({ children }) => {
     storeCategories: cat,
     searchValue: "",
     loaded: false,
+    urlId: 0,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const searchCategory = (id) => {
@@ -31,9 +32,22 @@ const AppProvider = ({ children }) => {
   const loadFunction = () => {
     dispatch({ type: "LOAD", initialState });
   };
+  const loadSingleItem = (e) => {
+    // console.log(e.target.parentElement.parentElement.parentElement);
+    dispatch({
+      type: "LOAD_SINGLE_ITEM",
+      payload: e.target.parentElement.parentElement.parentElement.id,
+    });
+  };
   return (
     <AppContext.Provider
-      value={{ ...state, searchCategory, searchbarFunction, loadFunction }}
+      value={{
+        ...state,
+        searchCategory,
+        searchbarFunction,
+        loadFunction,
+        loadSingleItem,
+      }}
     >
       {children}
     </AppContext.Provider>

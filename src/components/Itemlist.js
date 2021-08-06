@@ -1,9 +1,10 @@
 import React from "react";
 import { useGlobalContext } from "../contexts/AppContext";
 import { FaCartPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ItemList = () => {
-  const { items } = useGlobalContext();
+  const { items, loadSingleItem, urlId } = useGlobalContext();
   if (items.length < 1) {
     return (
       <h3 className="text-danger text-capitalize p-5 my-5 text-center mx-auto">
@@ -34,12 +35,17 @@ const ItemList = () => {
                     {title.substring(0, 30)}...
                   </h5>
                   <p className="text-light card-text">${price}</p>
-                  <button className="btn btn-primary text-light mr-4 text-uppercase">
-                    details
-                  </button>
-                  <button className="btn btn-success ml-5 text-uppercase">
+                  <Link to={`/:${urlId}`}>
+                    <div
+                      onClick={(e) => loadSingleItem(e)}
+                      className="btn btn-primary text-light mr-4 text-uppercase"
+                    >
+                      details
+                    </div>
+                  </Link>
+                  <div className="btn btn-success ml-5 text-uppercase">
                     add to cart <FaCartPlus />
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>

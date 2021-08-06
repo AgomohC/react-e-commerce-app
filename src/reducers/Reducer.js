@@ -26,6 +26,9 @@ const reducer = (state, action) => {
       return { ...state, items: newItems, searchValue: action.payload };
     case "LOAD":
       return { ...state, loaded: true };
+    case "LOAD_SINGLE_ITEM":
+      const newId = parseInt(action.payload);
+      return { ...state, urlId: newId };
     default:
       return state;
   }
