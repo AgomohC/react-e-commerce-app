@@ -23,3 +23,18 @@ body {
   top: -2px;
   right: -2px;
 }
+.form-control::placeholder {
+  color: #f8f9fa80 !important;
+  text-align: center;
+  text-transform: capitalize;
+}
+.form-control:-ms-input-placeholder {
+  color: #f8f9fa80 !important;
+  text-align: center;
+  text-transform: capitalize;
+}
+.form-control::-ms-input-placeholder {
+  color: #f8f9fa80 !important;
+  text-align: center;
+  text-transform: capitalize;
+}
