@@ -12,7 +12,7 @@ const ItemList = () => {
     );
   }
   return (
-    <section className="container py-4 mt-4 border border-secondary bg-light rounded">
+    <section className="container p-4 mt-4 border border-secondary bg-light rounded">
       <div className="row">
         {items.map((item) => {
           const { id, title, price, image } = item;
@@ -24,7 +24,7 @@ const ItemList = () => {
             >
               <div className="card" id={id}>
                 <img
-                  alt={`${title.substring(0, 30)}...`}
+                  alt={title}
                   src={image}
                   className="card-img-top img-height"
                 />

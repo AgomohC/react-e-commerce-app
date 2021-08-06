@@ -13,7 +13,19 @@ const reducer = (state, action) => {
         };
       }
     case "SEARCH_BAR":
-      return { ...state, searchValue: action.payload };
+      if (action.payload.length === 0) {
+        return { ...action.initialState };
+      }
+
+      // const testRegex = /action.payload/gi;
+      const testRegex = new RegExp(action.payload, "gi");
+      const newItems = action.initialState.items.filter((item) => {
+        const { title } = item;
+        return testRegex.test(title);
+      });
+      console.log(newItems);
+      return { ...state, items: newItems, searchValue: action.payload };
+
     default:
       return state;
   }
