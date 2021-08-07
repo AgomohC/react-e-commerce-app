@@ -10,17 +10,17 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar shadow navbar-dark bg-light py-2 pl-5">
+    <nav className="navbar shadow navbar-dark bg-light py-2 pl-3 pl-md-5">
       <div className="navbar-brand text-primary">
         <Link to="/">
           <div>
-            <GiClothes className="display-4 mr-1" />
+            <GiClothes className="mr-1 h3" />
             Femto Store
           </div>
         </Link>
       </div>
       <div className="row mr-md-5">
-        <div className="col-md-10 col-4 d-flex my-auto">
+        <div className="col-md-10 col-2 d-flex">
           <button
             type="button"
             className="btn btn-success mx-2 shadow d-none d-md-block text-capitalize"
@@ -34,16 +34,16 @@ const Navbar = () => {
             sign up
           </button>
           <button className="btn d-block d-md-none text-primary">
-            <MdAccountCircle className="h3" />
+            <MdAccountCircle className="h4" />
           </button>
-        </div>
-        <div className="col-md-1 col-4 my-auto">
-          <button className="btn relative">
-            <FaShoppingCart className="text-primary h3" />
-            <div className="fixed shadow-lg text-muted">
-              <p>30</p>
-            </div>
-          </button>
+          <div className="col-md-1 col-1 my-auto">
+            <button className="btn relative">
+              <FaShoppingCart className="text-primary h4" />
+              <div className="fixed shadow-lg text-muted">
+                <p>30</p>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </nav>

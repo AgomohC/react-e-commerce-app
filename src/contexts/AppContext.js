@@ -20,7 +20,7 @@ const AppProvider = ({ children }) => {
     storeCategories: cat,
     searchValue: "",
     loaded: false,
-    urlId: 6,
+    urlId: 1,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const searchCategory = (id) => {

@@ -21,7 +21,7 @@ const ItemList = () => {
           return (
             <div
               key={id}
-              className="col-8 col-sm-6 col-md-4 col-lg-4 my-3 mx-auto shadow-lg"
+              className="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 my-3 mx-auto shadow-lg"
             >
               <div className="card" id={id}>
                 <img
@@ -35,15 +35,15 @@ const ItemList = () => {
                     {title.substring(0, 30)}...
                   </h5>
                   <p className="text-light card-text">${price}</p>
-                  <Link to={`/:${urlId}`}>
+                  <Link to={`/:${urlId}`} className="mr-3">
                     <div
                       onMouseOver={(e) => loadSingleItem(e)}
-                      className="btn btn-primary text-light mr-4 text-uppercase"
+                      className="btn btn-primary text-light  text-uppercase"
                     >
                       details
                     </div>
                   </Link>
-                  <div className="btn btn-success ml-5 text-uppercase">
+                  <div className="btn btn-success ml-md-3 text-uppercase">
                     add to cart <FaCartPlus />
                   </div>
                 </div>
