@@ -21,28 +21,18 @@ const Navbar = () => {
       </div>
       <div className="row mr-md-5">
         <div className="col-md-10 col-2 d-flex">
-          <button
-            type="button"
-            className="btn btn-success mx-2 shadow d-none d-md-block text-capitalize"
-          >
-            log in
-          </button>
-          <button
-            type="button"
-            className="btn btn-success mx-2 shadow d-none d-md-block text-capitalize"
-          >
-            sign up
-          </button>
-          <button className="btn d-block d-md-none text-primary">
-            <MdAccountCircle className="h4" />
+          <button className="btn d-block  text-primary">
+            <MdAccountCircle className="h3" />
           </button>
           <div className="col-md-1 col-1 my-auto">
-            <button className="btn relative">
-              <FaShoppingCart className="text-primary h4" />
-              <div className="fixed shadow-lg text-muted">
-                <p>30</p>
-              </div>
-            </button>
+            <Link to="/cart">
+              <button className="btn relative">
+                <FaShoppingCart className="text-primary h4" />
+                <div className="fixed shadow-lg text-muted">
+                  <p>30</p>
+                </div>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

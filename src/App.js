@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
 import Error from "./Pages/Error";
+import Cart from "./Pages/Cart";
 import SingleItem from "./components/SingleItem";
-import { useGlobalContext } from "./contexts/AppContext";
 
 const App = () => {
-  const { urlId } = useGlobalContext();
-
   return (
     <Router>
       <Navbar></Navbar>
@@ -16,8 +14,9 @@ const App = () => {
         <Route exact path="/">
           <Home></Home>
         </Route>
-        <Route exact path={`/:${urlId}`}>
-          <SingleItem></SingleItem>
+        <Route exact path="/item/:id" children={<SingleItem />}></Route>
+        <Route exact path="/cart">
+          <Cart></Cart>
         </Route>
         <Route path="*">
           <Error></Error>

@@ -1,14 +1,12 @@
 import React from "react";
 import { useGlobalContext } from "../contexts/AppContext";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const SingleItem = () => {
-  const { items, urlId } = useGlobalContext();
-  const SingleItem = items[urlId - 1];
+  const { items } = useGlobalContext();
+  const SingleItem = items[parseInt(useParams().id.substring(1)) - 1];
   const { id, title, price, description, category, image } = SingleItem;
 
-  //TODO
-  // STYLE SINGLEITEM
   return (
     <section className="container bg-secondary height">
       <div className="row">
@@ -23,7 +21,7 @@ const SingleItem = () => {
           <img
             src={image}
             alt={title}
-            className="shadow img-height-2 rounded "
+            className="shadow width img-height-2 rounded "
           />
         </div>
         <div className="col-lg-6 p-5 text-capitalize text-light">
@@ -55,7 +53,9 @@ const SingleItem = () => {
             <div className="bg-primary align-self-start col-5  col-md-3 text-light shadow-lg rounded text-center h6 px-3 py-1 mr-md-5 ml-md-3">
               description
             </div>
-            <div className="h6 col-7  col-md-6">{description}</div>
+            <div className="h6 col-7  col-md-6">
+              {description.substring(0, 200)}...
+            </div>
           </div>
         </div>
       </div>

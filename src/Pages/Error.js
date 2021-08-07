@@ -13,8 +13,8 @@ const Error = () => {
         </Link>
       </div>
       <div className="row">
-        <div className="col d-flex align-items-center justify-content-center height">
-          <img src={image} className="col-8" alt="loading" />
+        <div className="col d-md-flex align-items-start justify-content-center height">
+          <img src={image} className="col-12 col-md-8" alt="loading" />
         </div>
       </div>
     </div>

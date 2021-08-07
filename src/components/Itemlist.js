@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ItemList = () => {
-  const { items, loadSingleItem, urlId } = useGlobalContext();
+  const { items } = useGlobalContext();
   if (items.length < 1) {
     return (
       <h3 className="text-danger text-capitalize p-5 my-5 text-center mx-auto">
@@ -35,11 +35,8 @@ const ItemList = () => {
                     {title.substring(0, 30)}...
                   </h5>
                   <p className="text-light card-text">${price}</p>
-                  <Link to={`/:${urlId}`} className="mr-3">
-                    <div
-                      onMouseOver={(e) => loadSingleItem(e)}
-                      className="btn btn-primary text-light  text-uppercase"
-                    >
+                  <Link to={`/item/:${id}`} className="mr-3">
+                    <div className="btn btn-primary text-light  text-uppercase">
                       details
                     </div>
                   </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import { data } from "../data";
 import reducer from "../reducers/reducer";
-import { useEffect, useContext, useState, useReducer } from "react";
+import { useContext, useReducer } from "react";
 
 const AppContext = React.createContext();
 
@@ -20,7 +20,6 @@ const AppProvider = ({ children }) => {
     storeCategories: cat,
     searchValue: "",
     loaded: false,
-    urlId: 1,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const searchCategory = (id) => {
@@ -32,12 +31,7 @@ const AppProvider = ({ children }) => {
   const loadFunction = () => {
     dispatch({ type: "LOAD", initialState });
   };
-  const loadSingleItem = (e) => {
-    dispatch({
-      type: "LOAD_SINGLE_ITEM",
-      payload: e.target.parentElement.parentElement.parentElement.id,
-    });
-  };
+
   return (
     <AppContext.Provider
       value={{
@@ -45,7 +39,6 @@ const AppProvider = ({ children }) => {
         searchCategory,
         searchbarFunction,
         loadFunction,
-        loadSingleItem,
       }}
     >
       {children}
