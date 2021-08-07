@@ -10,10 +10,32 @@ const SingleItem = () => {
   //TODO
   // STYLE SINGLEITEM
   return (
-    <section className="container bg-light height">
-      <div className="row">
-        <div className="col-12 col-sm-6">
-          <img src={image} alt={title} />
+    <section className="container bg-secondary height">
+      <div className="row py-5">
+        <div className="col-6 d-md-flex justify-content-end">
+          <img src={image} alt={title} className="img-height-2 rounded " />
+        </div>
+        <div className="col-6 text-capitalize text-light">
+          <h5>
+            <span>id</span>
+            {id}
+          </h5>
+          <h5>
+            <span>title</span>
+            {title}
+          </h5>
+          <h5>
+            <span>price</span>
+            {price}
+          </h5>
+          <h5>
+            <span>category</span>
+            {category}
+          </h5>
+          <h5>
+            <span>description</span>
+            {description}
+          </h5>
         </div>
       </div>
     </section>
