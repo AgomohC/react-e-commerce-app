@@ -7,7 +7,9 @@ body {
 .width-400 {
   max-width: 400px !important;
 }
-
+.height-2 {
+  height: auto !important;
+}
 .img-height {
   max-height: 300px !important;
 }

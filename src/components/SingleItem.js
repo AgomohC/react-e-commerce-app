@@ -11,31 +11,52 @@ const SingleItem = () => {
   // STYLE SINGLEITEM
   return (
     <section className="container bg-secondary height">
-      <div className="row py-5">
-        <div className="col-6 d-md-flex justify-content-end">
-          <img src={image} alt={title} className="img-height-2 rounded " />
+      <div className="row">
+        <Link to="/" className="mx-auto shadow mt-5 mb-3">
+          <div className="btn btn-danger shadow text-capitalize">
+            back to home
+          </div>
+        </Link>
+      </div>
+      <div className="row py-5 ">
+        <div className="col-6 d-lg-flex justify-content-end">
+          <img
+            src={image}
+            alt={title}
+            className="shadow img-height-2 rounded "
+          />
         </div>
-        <div className="col-6 text-capitalize text-light">
-          <h5>
-            <span>id</span>
-            {id}
-          </h5>
-          <h5>
-            <span>title</span>
-            {title}
-          </h5>
-          <h5>
-            <span>price</span>
-            {price}
-          </h5>
-          <h5>
-            <span>category</span>
-            {category}
-          </h5>
-          <h5>
-            <span>description</span>
-            {description}
-          </h5>
+        <div className="col-lg-6 p-5 text-capitalize text-light">
+          <div className="mb-4 row d-flex align-items-center">
+            <div className="bg-primary h6 col-md-3 col-5 text-center text-light rounded px-3 py-1 mr-md-5 ml-md-3 ">
+              id
+            </div>
+            <div className="h6 col-md-6 col-7">{id}</div>
+          </div>
+          <div className="mb-4 row d-flex align-items-center">
+            <div className="bg-primary col-md-3 col-5 h6 text-center text-light align-self-start rounded px-3 py-1 mr-md-5 ml-md-3">
+              title
+            </div>
+            <div className="col-md-6 col-7 h6">{title}</div>
+          </div>
+          <div className="mb-4 row d-flex height-2 align-items-center">
+            <div className="bg-primary col-md-3 col-5 h6 text-center text-light rounded px-3 py-1 mr-md-5 ml-md-3">
+              price
+            </div>
+            <div className="h6 col-md-6 col-7">${price}</div>
+          </div>
+          <div className="mb-4 row height-2 d-flex align-items-center">
+            <div className="bg-primary col-md-3 col-5 h6 text-center text-light align-self-start rounded px-3 py-1 mr-md-5 ml-md-3">
+              category
+            </div>
+            <div className="h6 col-md-6 col-7">{category}</div>
+          </div>
+          <div className="mb-4 row height-2 d-flex align-items-center">
+            <div className="bg-primary align-self-start col-5  col-md-3 text-light shadow-lg rounded text-center h6 px-3 py-1 mr-md-5 ml-md-3">
+              description
+            </div>
+            <div className="h6 col-7  col-md-6">{description}</div>
+          </div>
         </div>
       </div>
     </section>
