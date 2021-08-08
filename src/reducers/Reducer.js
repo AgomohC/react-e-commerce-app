@@ -22,7 +22,6 @@ const reducer = (state, action) => {
         const { title } = item;
         return testRegex.test(title);
       });
-      console.log(newItems);
       return { ...state, items: newItems, searchValue: action.payload };
     case "LOAD":
       return { ...state, loaded: true };

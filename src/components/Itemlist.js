@@ -1,10 +1,12 @@
 import React from "react";
 import { useGlobalContext } from "../contexts/AppContext";
-import { FaCartPlus } from "react-icons/fa";
+import { useGlobalCartContext } from "../contexts/CartContext";
+import { FaCartPlus, FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ItemList = () => {
   const { items } = useGlobalContext();
+  const { btnText, addedToCart, addToCart } = useGlobalCartContext();
   if (items.length < 1) {
     return (
       <h3 className="text-danger text-capitalize p-5 my-5 text-center mx-auto">
@@ -40,8 +42,12 @@ const ItemList = () => {
                       details
                     </div>
                   </Link>
-                  <div className="btn btn-success ml-md-3 text-uppercase">
-                    add to cart <FaCartPlus />
+                  <div
+                    onClick={(e) => addToCart(e)}
+                    className="btn btn-success ml-md-3 text-uppercase"
+                  >
+                    {btnText}
+                    {addedToCart ? <FaCheck /> : <FaCartPlus />}
                   </div>
                 </div>
               </div>
