@@ -6,6 +6,7 @@ import { useContext, useReducer } from "react";
 const CartContext = React.createContext();
 const CartProvider = ({ children }) => {
   const initialState = {
+    items: data,
     cartItems: [],
     btnText: `add to cart`,
     addedToCart: false,

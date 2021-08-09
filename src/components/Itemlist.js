@@ -37,7 +37,7 @@ const ItemList = () => {
                     {title.substring(0, 30)}...
                   </h5>
                   <p className="text-light card-text">${price}</p>
-                  <Link to={`/item/:${id}`} className="mr-3">
+                  <Link to={`/item/:${id}`} className="mr-2">
                     <div className="btn btn-primary text-light  text-uppercase">
                       details
                     </div>

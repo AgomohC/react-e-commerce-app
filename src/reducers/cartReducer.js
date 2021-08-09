@@ -1,18 +1,25 @@
-import { data } from "../data";
-
 const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
-    // let cartItem = state.cartItems.find(() => {
-    //   return state.cartItems === action.payload.targetId;
-    // })
-    // let cartItem = { number: 1, item: data[action.payload.targetId - 1] };
-
-    // console.log(cartItem);
-    // console.log(action.payload);
-    // const timeout = setTimeout(() => {
-    //   return { ...action.initialState };
-    // });
-    return { ...state, addedToCart: true, btnText: "added to cart" };
+    let addedCartItem = state.items.find((item) => {
+      return item.id === parseInt(action.payload.targetId);
+    });
+    let existedItem = state.cartItems.find((item) => {
+      return parseInt(action.payload.targetId) === item.id;
+    });
+    if (existedItem) {
+      let index = state.cartItems.indexOf(existedItem);
+      state.cartItems[index].quantity += 1;
+    } else {
+      addedCartItem.quantity = 1;
+      state.cartItems.push(addedCartItem);
+    }
+    console.log(state.cartItems);
+    // return {
+    //   ...state,
+    //   cartItems: [...state.cartItems, addedCartItem],
+    //   addedToCart: true,
+    //   btnText: "added to cart",
+    // };
   }
 
   return state;
