@@ -3,14 +3,17 @@ import { GiClothes } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useGlobalCartContext } from "../contexts/CartContext";
 
 // TODO
 //DESIGN TOOLTIPS FOR LOGINS AND SIGN UPS
 //ADD USERNAME FOR THE ACCOUNT DETAILS
 
 const Navbar = () => {
+  const { quantity } = useGlobalCartContext();
+
   return (
-    <nav className="navbar shadow navbar-dark bg-light py-2 pl-3 pl-md-5">
+    <nav className="navbar fixed-top shadow navbar-dark bg-light py-2 pl-1 pl-md-5">
       <div className="navbar-brand text-primary">
         <Link to="/">
           <div>
@@ -28,9 +31,14 @@ const Navbar = () => {
             <Link to="/cart">
               <button className="btn relative">
                 <FaShoppingCart className="text-primary h4" />
-                <div className="fixed shadow-lg text-muted">
-                  <p>30</p>
-                </div>
+
+                {quantity ? (
+                  <div className="fixed shadow-lg text-muted">
+                    <p>{quantity}</p>
+                  </div>
+                ) : (
+                  ""
+                )}
               </button>
             </Link>
           </div>

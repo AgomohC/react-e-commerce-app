@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const ItemList = () => {
   const { items } = useGlobalContext();
-  const { btnText, addedToCart, addToCart } = useGlobalCartContext();
+  const { addToCart } = useGlobalCartContext();
   if (items.length < 1) {
     return (
       <h3 className="text-danger text-capitalize p-5 my-5 text-center mx-auto">
@@ -38,16 +38,16 @@ const ItemList = () => {
                   </h5>
                   <p className="text-light card-text">${price}</p>
                   <Link to={`/item/:${id}`} className="mr-2">
-                    <div className="btn btn-primary text-light  text-uppercase">
+                    <div className="btn btn-primary text-light  text-capitalize">
                       details
                     </div>
                   </Link>
                   <div
                     onClick={(e) => addToCart(e)}
-                    className="btn btn-success ml-md-3 text-uppercase"
+                    className="btn btn-success ml-md-3 text-capitalize"
                   >
-                    {btnText}
-                    {addedToCart ? <FaCheck /> : <FaCartPlus />}
+                    add to cart
+                    <FaCartPlus className="ml-1 my-auto" />
                   </div>
                 </div>
               </div>

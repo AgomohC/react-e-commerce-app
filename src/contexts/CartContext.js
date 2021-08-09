@@ -8,8 +8,9 @@ const CartProvider = ({ children }) => {
   const initialState = {
     items: data,
     cartItems: [],
-    btnText: `add to cart`,
-    addedToCart: false,
+    total: 0,
+    quantity: 0,
+    // added: false,
   };
 
   const [state, dispatch] = useReducer(cartReducer, initialState);
@@ -18,7 +19,6 @@ const CartProvider = ({ children }) => {
     dispatch({
       type: "ADD_TO_CART",
       payload: {
-        button: e.target,
         targetId: e.target.parentElement.parentElement.id,
       },
       initialState,

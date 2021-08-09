@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <main
       onLoad={loadFunction}
-      className="bg-secondary pb-5 text-capitalize height"
+      className="bg-secondary mt-5 pb-5 text-capitalize height"
     >
       <SearchBar></SearchBar>
       <SearchButtons></SearchButtons>
