@@ -13,6 +13,7 @@ const cartReducer = (state, action) => {
     });
     if (existedItem) {
       let index = state.cartItems.indexOf(existedItem);
+
       state.cartItems[index].quantity += 1;
       return {
         ...state,
