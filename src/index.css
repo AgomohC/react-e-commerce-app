@@ -10,11 +10,24 @@ body {
 .width-400 {
   max-width: 400px !important;
 }
+.width-3 {
+  max-width: 100%;
+}
+.width-4 {
+  min-width: 72px !important;
+  max-width: 72px !important;
+}
+.width-5 {
+  max-width: 25%;
+}
 .height-2 {
   height: auto !important;
 }
+.height-3 {
+  max-height: 64px !important;
+}
 .img-height {
-  max-height: 300px !important;
+  max-height: 276px !important;
 }
 .img-height-2 {
   height: 450px;

@@ -26,11 +26,13 @@ const ItemList = () => {
               className="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 my-3 mx-auto shadow-lg"
             >
               <div className="card" id={id}>
-                <img
-                  alt={title}
-                  src={image}
-                  className="card-img-top img-height"
-                />
+                <div className="img-card-top mx-auto width-3 img-height">
+                  <img
+                    alt={title}
+                    src={image}
+                    className=" img-responsive width-3 img-height"
+                  />
+                </div>
 
                 <div className="card-body bg-secondary">
                   <h5 className="card-title text-white text-capitalize">
