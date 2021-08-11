@@ -29,7 +29,7 @@ const cartReducer = (state, action) => {
 
     let totalCounter = 0;
     for (let i = 0; i < newCart.length; i++) {
-      let itemTotal = parseInt(newCart[i].total);
+      let itemTotal = parseFloat(newCart[i].total).toFixed(2);
       totalCounter += itemTotal;
     }
 
@@ -51,7 +51,7 @@ const cartReducer = (state, action) => {
 
     let totalCounter = 0;
     for (let i = 0; i < newCart.length; i++) {
-      let itemTotal = parseInt(newCart[i].total);
+      let itemTotal = parseFloat(newCart[i].total).toFixed(2);
       totalCounter += itemTotal;
     }
     let quantityCounter = 0;
@@ -83,7 +83,40 @@ const cartReducer = (state, action) => {
     });
     let totalCounter = 0;
     for (let i = 0; i < tempCart.length; i++) {
-      let itemTotal = parseInt(tempCart[i].total);
+      let itemTotal = parseFloat(tempCart[i].total).toFixed(2);
+      totalCounter += itemTotal;
+    }
+    let quantityCounter = 0;
+    for (let i = 0; i < tempCart.length; i++) {
+      let itemQuantity = parseInt(tempCart[i].quantity);
+      quantityCounter += itemQuantity;
+    }
+    return {
+      ...state,
+      cartItems: tempCart,
+      total: parseFloat(totalCounter).toFixed(2),
+      quantity: quantityCounter,
+    };
+  }
+  if (action.type === "DECREASE_ITEM") {
+    let id = parseInt(action.payload);
+    let tempCart = state.cartItems
+      .map((cartItem) => {
+        if (cartItem.id === id) {
+          return {
+            ...cartItem,
+            quantity: cartItem.quantity - 1,
+            total: parseFloat((cartItem.quantity - 1) * cartItem.price).toFixed(
+              2
+            ),
+          };
+        }
+        return cartItem;
+      })
+      .filter((cartItem) => cartItem.quantity !== 0);
+    let totalCounter = 0;
+    for (let i = 0; i < tempCart.length; i++) {
+      let itemTotal = parseFloat(tempCart[i].total).toFixed(2);
       totalCounter += itemTotal;
     }
     let quantityCounter = 0;
