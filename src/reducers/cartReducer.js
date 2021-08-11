@@ -1,49 +1,45 @@
 const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
-    // state.added = true;
-    // setTimeout(() => {
-    //   state.added = false;
-    // }, 1000);
-
-    let addedCartItem = state.items.find((item) => {
-      return item.id === parseInt(action.payload.targetId);
+    const newCart = [...state.cartItems];
+    const id = parseInt(action.payload.targetId);
+    const newItemIndex = newCart.findIndex((item) => {
+      return item.id === id;
     });
-    let existedItem = state.cartItems.find((item) => {
-      return parseInt(action.payload.targetId) === item.id;
-    });
-    if (existedItem) {
-      let index = state.cartItems.indexOf(existedItem);
 
-      state.cartItems[index].quantity += 1;
-      return {
-        ...state,
-        cartItems: [...state.cartItems],
-        total: state.total + addedCartItem.price,
-        quantity: state.quantity + 1,
-      };
-      // state.total += existedItem.price;
-      // state.quantity += 1;
+    if (newItemIndex < 0) {
+      const product = state.items.find((item) => {
+        return item.id === id;
+      });
+
+      newCart.push({
+        ...product,
+        quantity: 1,
+        total: parseFloat(product.price).toFixed(2),
+        added: true,
+      });
     } else {
-      addedCartItem.quantity = 1;
-      return {
-        ...state,
-        cartItems: [...state.cartItems, addedCartItem],
-        total: state.total + addedCartItem.price,
-        quantity: state.quantity + 1,
+      const updatedItem = {
+        ...newCart[newItemIndex],
       };
-      // state.cartItems.push(addedCartItem);
-      // state.total += addedCartItem.price;
-      // state.quantity += 1;
+      updatedItem.quantity++;
+      updatedItem.total = parseFloat(
+        updatedItem.price * updatedItem.quantity
+      ).toFixed(2);
+      newCart[newItemIndex] = updatedItem;
     }
 
-    // let newState = {
-    //   ...state,
-    //   cartItems: [...state.cartItems],
-    //   total: parseFloat(state.total.toFixed(2)),
-    // };
-    // console.log(newState);
+    let totalCounter = 0;
+    for (let i = 0; i < newCart.length; i++) {
+      let itemTotal = parseInt(newCart[i].total);
+      totalCounter += itemTotal;
+    }
 
-    // return { ...newState };
+    return {
+      ...state,
+      cartItems: newCart,
+      quantity: state.quantity + 1,
+      total: parseFloat(totalCounter).toFixed(2),
+    };
   }
 
   return state;

@@ -1,10 +1,9 @@
 import React from "react";
-import ItemList from "../components/ItemList";
 import { useGlobalCartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cartItems } = useGlobalCartContext();
+  const { cartItems, total } = useGlobalCartContext();
 
   return cartItems.length ? (
     <section className="container">
@@ -27,9 +26,9 @@ const Cart = () => {
         </thead>
         <tbody>
           {cartItems.map((item, idx) => {
-            const { id, title, price, image, quantity } = item;
+            const { id, title, price, image, quantity, total } = item;
             const str = title.substring(0, 20);
-            console.log(item);
+
             return (
               <tr key={id}>
                 <th scope="row">{idx + 1}</th>
@@ -55,7 +54,7 @@ const Cart = () => {
                     delete
                   </button>
                 </td>
-                <td>${quantity * price}</td>
+                <td>${total}</td>
               </tr>
             );
           })}
@@ -63,7 +62,7 @@ const Cart = () => {
       </table>
       <div className="row justify-content-end">
         <div className="col-8 col-md-3 py-3 mr-3   bg-light rounded justify-content-end">
-          <div className="col-9 h6">Subtotal: 0</div>
+          <div className="col-9 h6">Subtotal: ${total}</div>
           <div className="col-8 h6">Tax: 0</div>
           <div className="col-8 h6">Total: 0</div>
           <div className="col-9 h6 justify-self-center mt-3">
