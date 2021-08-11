@@ -1,10 +1,13 @@
 import React from "react";
 import { useGlobalContext } from "../contexts/AppContext";
+import { useGlobalCartContext } from "../contexts/CartContext";
 
 import { Link, useParams } from "react-router-dom";
 
 const SingleItem = () => {
   const { items } = useGlobalContext();
+  const { addToCart } = useGlobalCartContext();
+
   const SingleItem = items[parseInt(useParams().id.substring(1)) - 1];
   const { id, title, price, description, category, image } = SingleItem;
 
@@ -58,6 +61,14 @@ const SingleItem = () => {
               {description.substring(0, 200)}...
             </div>
           </div>
+
+          <button
+            id={id}
+            onClick={(e) => addToCart(e.target.id)}
+            className="btn btn-success text-white text-capitalize w-100"
+          >
+            add to cart
+          </button>
         </div>
       </div>
     </section>

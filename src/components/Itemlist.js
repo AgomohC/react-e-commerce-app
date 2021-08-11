@@ -1,7 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../contexts/AppContext";
 import { useGlobalCartContext } from "../contexts/CartContext";
-import { FaCartPlus, FaCheck } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ItemList = () => {
@@ -45,7 +45,8 @@ const ItemList = () => {
                     </div>
                   </Link>
                   <div
-                    onClick={(e) => addToCart(e)}
+                    id={id}
+                    onClick={(e) => addToCart(e.target.id)}
                     className="btn btn-success ml-md-3 text-capitalize"
                   >
                     add to cart

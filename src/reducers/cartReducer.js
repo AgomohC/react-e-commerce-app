@@ -1,7 +1,7 @@
 const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     const newCart = [...state.cartItems];
-    const id = parseInt(action.payload.targetId);
+    const id = parseInt(action.payload);
     const newItemIndex = newCart.findIndex((item) => {
       return item.id === id;
     });

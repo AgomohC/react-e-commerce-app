@@ -14,12 +14,10 @@ const CartProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  const addToCart = (e) => {
+  const addToCart = (targetId) => {
     dispatch({
       type: "ADD_TO_CART",
-      payload: {
-        targetId: e.target.parentElement.parentElement.id,
-      },
+      payload: targetId,
       initialState,
     });
   };
