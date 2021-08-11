@@ -3,7 +3,14 @@ import { useGlobalCartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cartItems, total, clearCart } = useGlobalCartContext();
+  const {
+    cartItems,
+    total,
+    clearCart,
+    removeItem,
+    increaseItem,
+    decreaseItem,
+  } = useGlobalCartContext();
 
   return cartItems.length ? (
     <section className="container">
@@ -48,12 +55,28 @@ const Cart = () => {
                 <td>${price}</td>
 
                 <td>
-                  <button className="btn btn-outline-warning ">-</button>
+                  <button
+                    id={id}
+                    onClick={(e) => decreaseItem(e.target.id)}
+                    className="btn btn-outline-warning "
+                  >
+                    -
+                  </button>
                   <span className="text-dark p-2">{quantity}</span>
-                  <button className="btn btn-outline-success ">+</button>
+                  <button
+                    id={id}
+                    onClick={(e) => increaseItem(e.target.id)}
+                    className="btn btn-outline-success "
+                  >
+                    +
+                  </button>
                 </td>
                 <td>
-                  <button className="btn btn-danger text-capitalize text-light ">
+                  <button
+                    id={id}
+                    onClick={(e) => removeItem(e.target.id)}
+                    className="btn btn-danger text-capitalize text-light "
+                  >
                     delete
                   </button>
                 </td>
@@ -77,7 +100,7 @@ const Cart = () => {
       </div>
     </section>
   ) : (
-    <>
+    <section className="container">
       <div className="row mt-5 height-3">
         <Link to="/" className="mx-auto shadow-lg mt-5 mb-3">
           <div className="btn btn-danger shadow-lg text-capitalize">
@@ -88,7 +111,7 @@ const Cart = () => {
       <h3 className="mx-auto text-center mt-5 text-white">
         Your cart is empty
       </h3>
-    </>
+    </section>
   );
 };
 

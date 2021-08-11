@@ -26,9 +26,26 @@ const CartProvider = ({ children }) => {
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
   };
-
+  const removeItem = (itemId) => {
+    dispatch({ type: "REMOVE_ITEM", payload: itemId });
+  };
+  const increaseItem = (itemId) => {
+    dispatch({ type: "INCREASE_ITEM", payload: itemId });
+  };
+  const decreaseItem = (itemId) => {
+    dispatch({ type: "DECREASE_ITEM", payload: itemId });
+  };
   return (
-    <CartContext.Provider value={{ ...state, addToCart, clearCart }}>
+    <CartContext.Provider
+      value={{
+        ...state,
+        addToCart,
+        clearCart,
+        removeItem,
+        increaseItem,
+        decreaseItem,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
