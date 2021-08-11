@@ -15,7 +15,6 @@ const cartReducer = (state, action) => {
         ...product,
         quantity: 1,
         total: parseFloat(product.price).toFixed(2),
-        added: true,
       });
     } else {
       const updatedItem = {
@@ -41,7 +40,9 @@ const cartReducer = (state, action) => {
       total: parseFloat(totalCounter).toFixed(2),
     };
   }
-
+  if (action.type === "CLEAR_CART") {
+    return { ...state, cartItems: [], total: 0, quantity: 0 };
+  }
   return state;
 };
 export default cartReducer;

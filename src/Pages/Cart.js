@@ -3,12 +3,15 @@ import { useGlobalCartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cartItems, total } = useGlobalCartContext();
+  const { cartItems, total, clearCart } = useGlobalCartContext();
 
   return cartItems.length ? (
     <section className="container">
       <div className=" row mt-5 height-3">
-        <div className="btn mx-auto shadow-lg mt-5 mb-3 btn-danger shadow-lg text-capitalize">
+        <div
+          onClick={clearCart}
+          className="btn mx-auto shadow-lg mt-5 mb-3 btn-danger shadow-lg text-capitalize"
+        >
           clear cart
         </div>
       </div>

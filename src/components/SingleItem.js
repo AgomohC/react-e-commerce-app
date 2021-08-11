@@ -1,5 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../contexts/AppContext";
+
 import { Link, useParams } from "react-router-dom";
 
 const SingleItem = () => {
@@ -9,7 +10,7 @@ const SingleItem = () => {
 
   return (
     <section className="container bg-secondary height">
-      <div className="row">
+      <div className="row mt-5">
         <Link to="/" className="mx-auto shadow mt-5 mb-3">
           <div className="btn btn-danger shadow text-capitalize">
             back to home

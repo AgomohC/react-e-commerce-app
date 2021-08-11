@@ -23,9 +23,12 @@ const CartProvider = ({ children }) => {
       initialState,
     });
   };
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart }}>
+    <CartContext.Provider value={{ ...state, addToCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
