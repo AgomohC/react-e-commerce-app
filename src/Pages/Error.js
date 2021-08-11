@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Error = () => {
   return (
     <div className="container rounded mx-auto bg-secondary">
-      <div className="row">
+      <div className="row mt-5">
         <Link to="/" className="mx-auto shadow-lg mt-5 mb-3">
           <div className="btn btn-danger shadow-lg text-capitalize">
             back to home

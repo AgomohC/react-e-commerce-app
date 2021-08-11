@@ -4,12 +4,16 @@ import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
 import Error from "./Pages/Error";
 import Cart from "./Pages/Cart";
+import Login from "./Pages/Login";
 import SingleItem from "./components/SingleItem";
 
 const App = () => {
   return (
     <Router>
       <Navbar></Navbar>
+      {/* <Route path="/login">
+        <Login></Login>
+      </Route> */}
       <Switch>
         <Route exact path="/">
           <Home></Home>
