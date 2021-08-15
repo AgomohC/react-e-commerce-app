@@ -52,7 +52,7 @@ const Cart = () => {
                   </div>
                 </td>
                 <td>{str}...</td>
-                <td>${price}</td>
+                <td>NGN {price}</td>
 
                 <td>
                   <button
@@ -88,7 +88,7 @@ const Cart = () => {
       </table>
       <div className="row justify-content-end">
         <div className="col-8 col-md-3 py-3 mr-3   bg-light rounded justify-content-end">
-          <div className="col-9 h6">Subtotal: ${total}</div>
+          <div className="col-9 h6">Subtotal: NGN {total}</div>
           <div className="col-8 h6">Tax: 0</div>
           <div className="col-8 h6">Total: 0</div>
           <div className="col-9 h6 justify-self-center mt-3">

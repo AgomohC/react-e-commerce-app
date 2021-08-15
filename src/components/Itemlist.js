@@ -38,7 +38,7 @@ const ItemList = () => {
                   <h5 className="card-title text-white text-capitalize">
                     {title.substring(0, 30)}...
                   </h5>
-                  <p className="text-light card-text">${price}</p>
+                  <p className="text-light card-text">NGN {price}</p>
                   <Link to={`/item/:${id}`} className="mr-2">
                     <div className="btn btn-primary text-light  text-capitalize">
                       details

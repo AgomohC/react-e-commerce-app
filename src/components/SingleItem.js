@@ -45,7 +45,7 @@ const SingleItem = () => {
             <div className="bg-primary col-md-3 col-5 h6 text-center text-light rounded px-3 py-1 mr-md-5 ml-md-3">
               price
             </div>
-            <div className="h6 col-md-6 col-7">${price}</div>
+            <div className="h6 col-md-6 col-7">NGN {price}</div>
           </div>
           <div className="mb-4 row height-2 d-flex align-items-center">
             <div className="bg-primary col-md-3 col-5 h6 text-center text-light align-self-start rounded px-3 py-1 mr-md-5 ml-md-3">

@@ -1,13 +1,8 @@
 import React from "react";
 import { GiClothes } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
-import { MdAccountCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useGlobalCartContext } from "../contexts/CartContext";
-
-// TODO
-//DESIGN TOOLTIPS FOR LOGINS AND SIGN UPS
-//ADD USERNAME FOR THE ACCOUNT DETAILS
 
 const Navbar = () => {
   const { quantity } = useGlobalCartContext();
