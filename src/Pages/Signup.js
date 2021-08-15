@@ -1,10 +1,24 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 const Signup = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
+  const { signup } = useAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (passwordRef.current.value !== confirmPasswordRef.current.value) {
+      console.log("error");
+    }
+    try {
+      await signup(emailRef.current.value, passwordRef.current.value);
+    } catch (error) {
+      console.log("error");
+    }
+  };
   return (
     <section className="vh-100 mt-4">
       <div className="container py-5 h-100 ">
@@ -14,7 +28,16 @@ const Signup = () => {
               <div className="row g-0">
                 <div className="col d-flex align-items-center justify-content-center">
                   <div className="card-body p-4 px-lg-5 py-lg-3 text-black">
-                    <form>
+                    <form
+                      onSubmit={(e) =>
+                        handleSubmit(
+                          e,
+                          emailRef,
+                          passwordRef,
+                          confirmPasswordRef
+                        )
+                      }
+                    >
                       <h5
                         className="fw-normal mb-3 pb-3"
                         style={{ letterSpacing: 1 + "px" }}

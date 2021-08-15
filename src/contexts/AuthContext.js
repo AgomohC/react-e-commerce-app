@@ -1,18 +1,29 @@
 import React from "react";
-import authReducer from "../reducers/authReducer";
-import { useContext, useReducer } from "react";
+import { useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
 
-// console.log(auth);
 const AuthContext = React.createContext();
 
 const AuthProvider = ({ children }) => {
-  const initialState = { currentUser: "" };
-  const [state, dispatch] = useReducer(authReducer, initialState);
+  const [currentUser, setCurrentUser] = useState();
 
-  return (
-    <AuthContext.Provider value={{ ...state }}>{children}</AuthContext.Provider>
-  );
+  const signup = (email, password) => {
+    return auth.createUserWithEmailAndPassword(email, password);
+  };
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+    return unsubscribe;
+  }, []);
+
+  const value = {
+    currentUser,
+    signup,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 export const useAuth = () => {
   return useContext(AuthContext);
