@@ -2,7 +2,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "SEARCH_CATEGORIES":
       if (action.payload === "all") {
-        return { ...state };
+        return { ...action.initialState };
       } else {
         const newItems = action.initialState.items.filter((item) => {
           return item.category === action.payload;

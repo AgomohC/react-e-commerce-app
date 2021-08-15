@@ -3,6 +3,7 @@ import authReducer from "../reducers/authReducer";
 import { useContext, useReducer } from "react";
 import { auth } from "../firebase";
 
+// console.log(auth);
 const AuthContext = React.createContext();
 
 const AuthProvider = ({ children }) => {
