@@ -4,8 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
 import Error from "./Pages/Error";
 import Cart from "./Pages/Cart";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
+
 import SingleItem from "./components/SingleItem";
 
 const App = () => {
@@ -20,12 +19,6 @@ const App = () => {
         <Route exact path="/item/:id" children={<SingleItem />}></Route>
         <Route exact path="/cart">
           <Cart></Cart>
-        </Route>
-        <Route path="/login">
-          <Login></Login>
-        </Route>
-        <Route path="/signup">
-          <Signup></Signup>
         </Route>
         <Route path="*">
           <Error></Error>

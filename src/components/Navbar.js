@@ -24,14 +24,10 @@ const Navbar = () => {
       </div>
       <div className="row mr-md-5">
         <div className="col-md-10 col-2 d-flex">
-          <button className="btn d-block  text-primary">
-            <MdAccountCircle className="h3" />
-          </button>
           <div className="col-md-1 col-1 my-auto">
             <Link to="/cart">
               <button className="btn relative">
                 <FaShoppingCart className="text-primary h4" />
-
                 {quantity ? (
                   <div className="fixed shadow-lg text-muted">
                     <p>{quantity}</p>
