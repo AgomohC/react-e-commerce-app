@@ -1,47 +1,28 @@
 import React, { useState } from "react";
-// import { PaystackButton } from "react-paystack";
 import { useGlobalCartContext } from "../contexts/CartContext";
-// import { PayPalButton } from "react-paypal-button-v2";
+import { useHistory } from "react-router-dom";
 import { usePaystackPayment } from "react-paystack";
 
 const Checkout = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const { total } = useGlobalCartContext();
+  const { total, clearCart } = useGlobalCartContext();
   const config = {
     reference: new Date().getTime().toString(),
     email: email,
     amount: parseInt(total * 100),
     publicKey: "pk_test_645792588e22e9d3333959f7e3595c25046d47ae",
   };
-  // you can call this function anything
+  const history = useHistory();
   const onSuccess = (reference) => {
-    // Implementation for whatever you want to do with reference and after success call.
-    console.log(reference);
+    clearCart();
   };
 
-  // you can call this function anything
   const onClose = () => {
-    // implementation for  whatever you want to do when the Paystack dialog closed.
-    console.log("closed");
+    history.push("/cart");
   };
   const initializePayment = usePaystackPayment(config);
-  // const publicKey = "pk_test_645792588e22e9d3333959f7e3595c25046d47ae";
-  // const amount = total * 100;
-  // const componentProps = {
-  //   email,
-  //   amount,
-  //   metadata: {
-  //     name,
-  //     phone,
-  //   },
-  //   publicKey,
-  //   text: "Pay Now",
-  //   onSuccess: () =>
-  //     alert("Thanks for doing business with us! Come back soon!!"),
-  //   onClose: () => alert("Please, don't go!!"),
-  // };
 
   return (
     <section className="container p-5 mt-5">
@@ -77,9 +58,6 @@ const Checkout = () => {
           />
         </div>
       </form>
-      {/* <PaystackButton {...componentProps} className="btn btn-primary btn-block">
-        Pay NGN {total} now!
-      </PaystackButton> */}
       <button
         onClick={() => {
           initializePayment(onSuccess, onClose);

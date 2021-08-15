@@ -11,7 +11,7 @@ const Cart = () => {
     increaseItem,
     decreaseItem,
   } = useGlobalCartContext();
-  console.log(total);
+  const newTotal = total;
   return cartItems.length ? (
     <section className="container">
       <div className=" row mt-5 height-3">
@@ -88,7 +88,7 @@ const Cart = () => {
       </table>
       <div className="row my-3 justify-content-end">
         <div className="col-8 col-md-3 py-3 mr-3   bg-light rounded justify-content-end">
-          <div className="col-9 h6">Total: NGN {total}</div>
+          <div className="col-9 h6">Total: NGN {newTotal}</div>
           <div className="col-9 h6 justify-self-center mt-3">
             <Link to="/checkout">
               <button className="btn w-md-75 btn-primary text-capitalize">

@@ -29,7 +29,7 @@ const cartReducer = (state, action) => {
 
     let totalCounter = 0;
     for (let i = 0; i < newCart.length; i++) {
-      let itemTotal = parseFloat(newCart[i].total).toFixed(2);
+      let itemTotal = parseInt(parseFloat(newCart[i].total).toFixed(2));
       totalCounter += itemTotal;
     }
 
@@ -51,7 +51,8 @@ const cartReducer = (state, action) => {
 
     let totalCounter = 0;
     for (let i = 0; i < newCart.length; i++) {
-      let itemTotal = parseFloat(newCart[i].total).toFixed(2);
+      let itemTotal = parseInt(parseFloat(newCart[i].total).toFixed(2));
+
       totalCounter += itemTotal;
     }
     let quantityCounter = 0;
@@ -83,7 +84,7 @@ const cartReducer = (state, action) => {
     });
     let totalCounter = 0;
     for (let i = 0; i < tempCart.length; i++) {
-      let itemTotal = parseFloat(tempCart[i].total).toFixed(2);
+      let itemTotal = parseInt(parseFloat(tempCart[i].total).toFixed(2));
       totalCounter += itemTotal;
     }
     let quantityCounter = 0;
@@ -116,7 +117,7 @@ const cartReducer = (state, action) => {
       .filter((cartItem) => cartItem.quantity !== 0);
     let totalCounter = 0;
     for (let i = 0; i < tempCart.length; i++) {
-      let itemTotal = parseFloat(tempCart[i].total).toFixed(2);
+      let itemTotal = parseInt(parseFloat(tempCart[i].total).toFixed(2));
       totalCounter += itemTotal;
     }
     let quantityCounter = 0;
