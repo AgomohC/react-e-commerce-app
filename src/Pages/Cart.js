@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useGlobalCartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
-import { PaystackButton } from "react-paystack";
 
 const Cart = () => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-
   const {
     cartItems,
     total,
@@ -16,22 +11,6 @@ const Cart = () => {
     increaseItem,
     decreaseItem,
   } = useGlobalCartContext();
-
-  const publicKey = "pk_test_645792588e22e9d3333959f7e3595c25046d47ae";
-  const amount = total * 100;
-  const componentProps = {
-    email,
-    amount,
-    metadata: {
-      name,
-      phone,
-    },
-    publicKey,
-    text: "Pay Now",
-    onSuccess: () =>
-      alert("Thanks for doing business with us! Come back soon!!"),
-    onClose: () => alert("Wait! You need this oil, don't go!!!!"),
-  };
 
   return cartItems.length ? (
     <section className="container">
@@ -113,9 +92,11 @@ const Cart = () => {
           <div className="col-8 h6">Tax: 0</div>
           <div className="col-8 h6">Total: 0</div>
           <div className="col-9 h6 justify-self-center mt-3">
-            <button className="btn w-md-75 btn-primary text-capitalize">
-              checkout
-            </button>
+            <Link to="/checkout">
+              <button className="btn w-md-75 btn-primary text-capitalize">
+                checkout
+              </button>
+            </Link>
           </div>
         </div>
       </div>
