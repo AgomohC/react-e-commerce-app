@@ -11,7 +11,7 @@ const Cart = () => {
     increaseItem,
     decreaseItem,
   } = useGlobalCartContext();
-
+  console.log(total);
   return cartItems.length ? (
     <section className="container">
       <div className=" row mt-5 height-3">
@@ -86,11 +86,9 @@ const Cart = () => {
           })}
         </tbody>
       </table>
-      <div className="row justify-content-end">
+      <div className="row my-3 justify-content-end">
         <div className="col-8 col-md-3 py-3 mr-3   bg-light rounded justify-content-end">
-          <div className="col-9 h6">Subtotal: NGN {total}</div>
-          <div className="col-8 h6">Tax: 0</div>
-          <div className="col-8 h6">Total: 0</div>
+          <div className="col-9 h6">Total: NGN {total}</div>
           <div className="col-9 h6 justify-self-center mt-3">
             <Link to="/checkout">
               <button className="btn w-md-75 btn-primary text-capitalize">

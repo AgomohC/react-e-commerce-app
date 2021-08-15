@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import { PaystackButton } from "react-paystack";
 import { useGlobalCartContext } from "../contexts/CartContext";
+// import { PayPalButton } from "react-paypal-button-v2";
 import { usePaystackPayment } from "react-paystack";
 
 const Checkout = () => {
@@ -11,7 +12,7 @@ const Checkout = () => {
   const config = {
     reference: new Date().getTime().toString(),
     email: email,
-    amount: total,
+    amount: parseInt(total * 100),
     publicKey: "pk_test_645792588e22e9d3333959f7e3595c25046d47ae",
   };
   // you can call this function anything
@@ -83,8 +84,10 @@ const Checkout = () => {
         onClick={() => {
           initializePayment(onSuccess, onClose);
         }}
-        className="btn btn-primary btn-block"
-      ></button>
+        className="btn mt-3 w-25 mx-auto shadow btn-primary btn-block"
+      >
+        Pay NGN {total} now!
+      </button>
     </section>
   );
 };
