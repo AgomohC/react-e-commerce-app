@@ -7,6 +7,10 @@ import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
 import SingleItem from "./components/SingleItem";
 
+//TODO
+//fix itemlist.js button content
+// make a11y compliant
+
 const App = () => {
   return (
     <Router>

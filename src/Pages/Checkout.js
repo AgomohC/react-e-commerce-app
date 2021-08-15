@@ -11,12 +11,15 @@ const Checkout = () => {
   const config = {
     reference: new Date().getTime().toString(),
     email: email,
+    phone: phone,
+    name: name,
     amount: parseInt(total * 100),
     publicKey: "pk_test_645792588e22e9d3333959f7e3595c25046d47ae",
   };
   const history = useHistory();
-  const onSuccess = (reference) => {
+  const onSuccess = () => {
     clearCart();
+    history.push("/");
   };
 
   const onClose = () => {
