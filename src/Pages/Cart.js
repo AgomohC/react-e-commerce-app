@@ -103,7 +103,7 @@ const Cart = () => {
     <section className="container">
       <div className="row mt-5 height-3">
         <Link to="/" className="mx-auto shadow-lg mt-5 mb-3">
-          <div className="btn btn-danger shadow-lg text-capitalize">
+          <div className="btn btn-warning shadow-lg text-capitalize">
             back to home
           </div>
         </Link>

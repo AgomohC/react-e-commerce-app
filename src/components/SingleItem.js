@@ -15,7 +15,7 @@ const SingleItem = () => {
     <section className="container bg-secondary height">
       <div className="row mt-5">
         <Link to="/" className="mx-auto shadow mt-5 mb-3">
-          <div className="btn btn-danger shadow text-capitalize">
+          <div className="btn btn-warning shadow text-capitalize">
             back to home
           </div>
         </Link>
@@ -64,10 +64,10 @@ const SingleItem = () => {
 
           <button
             id={id}
-            onClick={(e) => addToCart(e.target.id)}
-            className="btn btn-success text-white text-capitalize w-100"
+            onClick={(e) => addToCart(e.target)}
+            className="btn btn-info  text-white text-capitalize w-100"
           >
-            add to cart
+            <h5>add to cart</h5>
           </button>
         </div>
       </div>
