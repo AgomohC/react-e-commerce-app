@@ -9,7 +9,6 @@ import SingleItem from "./components/SingleItem";
 
 //TODO
 //fix itemlist.js button content
-// make a11y compliant
 
 const App = () => {
   return (

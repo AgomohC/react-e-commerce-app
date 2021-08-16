@@ -2,6 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../contexts/AppContext";
 import { useGlobalCartContext } from "../contexts/CartContext";
 import { FaCartPlus } from "react-icons/fa";
+import { GiCheckMark } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 const ItemList = () => {
@@ -44,14 +45,13 @@ const ItemList = () => {
                       details
                     </div>
                   </Link>
-                  <div
+                  <button
                     id={id}
-                    onClick={(e) => addToCart(e.target.id)}
-                    className="btn btn-success ml-md-3 text-capitalize"
+                    onClick={(e) => addToCart(e.target)}
+                    className={`btn btn-info ml-md-3 text-white text-capitalize`}
                   >
                     add to cart
-                    <FaCartPlus className="ml-1 my-auto" />
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>

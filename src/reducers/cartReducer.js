@@ -1,7 +1,7 @@
 const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     const newCart = [...state.cartItems];
-    const id = parseInt(action.payload);
+    const id = parseInt(action.payload.id);
     const newItemIndex = newCart.findIndex((item) => {
       return item.id === id;
     });
@@ -32,12 +32,27 @@ const cartReducer = (state, action) => {
       let itemTotal = parseInt(parseFloat(newCart[i].total).toFixed(2));
       totalCounter += itemTotal;
     }
+    const btn = action.payload;
+    btn.innerText = "added to cart";
+    btn.classList.remove("btn-info");
+    btn.classList.add("btn-success");
 
+    btn.disabled = true;
     return {
       ...state,
       cartItems: newCart,
       quantity: state.quantity + 1,
       total: parseFloat(totalCounter).toFixed(2),
+    };
+  }
+  if (action.type === "ADD_TO_CART_HIDE") {
+    const btn = action.payload;
+    btn.innerText = "add to cart";
+    btn.classList.remove("btn-success");
+    btn.classList.add("btn-info");
+    btn.disabled = false;
+    return {
+      ...state,
     };
   }
   if (action.type === "CLEAR_CART") {

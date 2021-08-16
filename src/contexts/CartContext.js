@@ -14,12 +14,15 @@ const CartProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  const addToCart = (targetId) => {
+  const addToCart = (target) => {
     dispatch({
       type: "ADD_TO_CART",
-      payload: targetId,
+      payload: target,
       initialState,
     });
+    setTimeout(() => {
+      dispatch({ type: "ADD_TO_CART_HIDE", payload: target });
+    }, 3000);
   };
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
