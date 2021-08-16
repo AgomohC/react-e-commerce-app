@@ -1,8 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../contexts/AppContext";
 import { useGlobalCartContext } from "../contexts/CartContext";
-import { FaCartPlus } from "react-icons/fa";
-import { GiCheckMark } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 const ItemList = () => {
